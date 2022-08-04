@@ -9,14 +9,18 @@ public class GlassesHandler : MonoBehaviour
     {
         socket = GetComponent<XRSocketInteractor>();
     }
-
-    public void FixGlasses(XRBaseInteractable obj)
+    
+    public void FixGlasses()
     {
-        obj.gameObject.layer = 11;
+        IXRSelectInteractable objName = socket.GetOldestInteractableSelected();
+
+        objName.transform.gameObject.layer = 11;
     }
 
-    public void UnFixGlasses(XRBaseInteractable obj)
+    public void UnFixGlasses()
     {
-        obj.gameObject.layer = 0;
+        IXRSelectInteractable objName = socket.GetOldestInteractableSelected();
+
+        objName.transform.gameObject.layer = 0;
     }
 }

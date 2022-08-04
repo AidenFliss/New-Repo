@@ -116,9 +116,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_SelectMode: 1
-  m_CustomReticle: {fileID: 919132149155446097, guid: 307e23520cfd9f14d941b0f76117a0cb,
+  m_CustomReticle: {fileID: 7024681101657739277, guid: 0f828e5cfeba1024f9717c78d4cad6ab,
     type: 3}
   m_FirstHoverEntered:
     m_PersistentCalls:
