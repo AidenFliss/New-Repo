@@ -5,9 +5,11 @@ public class GlassesHandler : MonoBehaviour
 {
     public XRSocketInteractor socket;
 
-    void Start()
+    void Awake()
     {
         socket = GetComponent<XRSocketInteractor>();
+        socket.onSelectEnter.AddListener(FixGlasses);
+        socket.onSelectExit.AddListener(UnFixGlasses);
     }
     
     public void FixGlasses()
