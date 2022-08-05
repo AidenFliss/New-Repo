@@ -31,7 +31,6 @@ public class FoodEatTrig : MonoBehaviour
     IEnumerator DelayAction(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        Debug.Log("cooldown over");
         cooldown = false;
     }
 
