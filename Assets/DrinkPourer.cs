@@ -13,7 +13,7 @@ public class DrinkPourer : MonoBehaviour
 
     void Update()
     {
-        if ((transform.rotation.z >= rotThreshhold && transform.rotation.z < 240) || (transform.rotation.x >= rotThreshhold && transform.rotation.x < 240) || (transform.rotation.z <= rotThreshhold && transform.rotation > )) //note to future self: loook up checking if angles do thnig or whatavr (or if up is down)
+        if ((transform.rotation.z >= rotThreshhold && transform.rotation.z < 240) || (transform.rotation.x >= rotThreshhold && transform.rotation.x < 240))// || (transform.rotation.z <= rotThreshhold && transform.rotation > )) //note to future self: loook up checking if angles do thnig or whatavr (or if up is down)
         {
             Debug.Log("e passes");
             var em = particles.emission;
