@@ -6,7 +6,6 @@ public class FoodEatTrig : MonoBehaviour
 {
     public BoxCollider boxCollider;
     bool cooldown = false;
-    Food foodScr;
 
     void Awake()
     {
@@ -15,21 +14,32 @@ public class FoodEatTrig : MonoBehaviour
 
     void OnTriggerEnter(Collider obj)
     {
-        Debug.Log("unknown obj touch");
-        Debug.Log("obj name: " + obj.gameObject.name);
         if (obj.gameObject.tag == "Food" && cooldown == false)
         {
-            Debug.Log("object identified!");
-            foodScr = obj.gameObject.GetComponent< Food >();
-            foodScr.TakeBite();
-            cooldown = true;
-            DelayAction(0.3f);
+            EatDo(obj);
+        }
+    }
+
+    void OnTriggerStay(Collider obj)
+    {
+        if (obj.gameObject.tag == "Food" && cooldown == false)
+        {
+            EatDo(obj);
         }
     }
 
     IEnumerator DelayAction(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        Debug.Log("cooldown over");
         cooldown = false;
+    }
+
+    public void EatDo(Collider obj)
+    {
+        cooldown = true;
+        Food foodScr = obj.gameObject.GetComponent<Food>();
+        foodScr.TakeBite();
+        StartCoroutine(DelayAction(0.6f));
     }
 }

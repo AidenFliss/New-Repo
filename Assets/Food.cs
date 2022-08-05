@@ -8,7 +8,10 @@ public class Food : MonoBehaviour
     public GameObject foodObjMain;
     public GameObject container;
 
+    public BoxCollider collision;
+
     public int stages = 3;
+    int currentStg = 0;
 
     public AudioSource audioSource;
 
@@ -21,22 +24,28 @@ public class Food : MonoBehaviour
 
     public ParticleSystem biteParticles;
 
+    void Awake()
+    {
+        collision = GetComponent<BoxCollider>();
+    }
+
     public void TakeBite()
     {
-        stages--;
+        currentStg++;
         biteParticles.Emit(7);
         audioSource.PlayOneShot(soundVariations[UnityEngine.Random.Range(0, soundVariations.Count)], UnityEngine.Random.Range(0f, volumeVariation));
-        if (stages <= 0)
+        if (currentStg >= stages)
         {
             Destroy(container);
         }else
         {
             foodObjMain.SetActive(false);
-            if (stages >= 1)
+            if (currentStg >= 1)
             {
-                stageObjects[stages - 1].SetActive(false);
+                stageObjects[currentStg - 1].SetActive(false);
             }
-            stageObjects[stages].SetActive(true);
+            stageObjects[currentStg].SetActive(true);
+            collision.size = stageObjects[currentStg].transform.localScale;
         }
     }
 }
