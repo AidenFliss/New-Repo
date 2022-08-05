@@ -193,7 +193,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3107401628941224605}
   serializedVersion: 8
-  lengthInSec: 5.91
+  lengthInSec: 100000
   simulationSpeed: 0.12
   stopAction: 2
   cullingMode: 0
@@ -202,7 +202,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5294,6 +5294,7 @@ MonoBehaviour:
   rotThreshhold: 120
   origRate: 100
   particles: {fileID: 1141447123575758155}
+  socket: {fileID: 1666125384088263006}
 --- !u!1 &5511867744316232814
 GameObject:
   m_ObjectHideFlags: 0
