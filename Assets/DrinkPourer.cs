@@ -5,8 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DrinkPourer : MonoBehaviour
 {
-    public bool infinite = true;
-    public float rotThreshhold = 120;
+    //public bool infinite = true;
+    public float rotThreshold = 20;
 
     public float origRate = 20.0f;
 
@@ -15,7 +15,7 @@ public class DrinkPourer : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Dot(transform.up, Vector3.down) > 0)
+        if (Vector3.Dot(transform.up, Vector3.down) > rotThreshold)
         {
             if (socket.hasSelection == false)
             {
