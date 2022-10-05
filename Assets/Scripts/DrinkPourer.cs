@@ -5,19 +5,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DrinkPourer : MonoBehaviour
 {
-    //public bool infinite = true;
-    public float rotThreshold = 20;
-
     public float origRate = 20.0f;
 
     public ParticleSystem particles;
     public XRSocketInteractor socket;
 
+    [SerializeField]
+    private bool isGrabbed = false;
+
     void Update()
     {
-        if (Vector3.Dot(transform.up, Vector3.down) > rotThreshold)
+        if (Vector3.Dot(transform.up, Vector3.down) > 0)
         {
-            if (socket.hasSelection == false)
+            if (socket.hasSelection == false && isGrabbed == true)
             {
                 var em = particles.emission;
                 em.rateOverTime = origRate;
@@ -27,5 +27,10 @@ public class DrinkPourer : MonoBehaviour
             var em = particles.emission;
             em.rateOverTime = 0f;
         }
+    }
+
+    public void SetGrabbed(bool value)
+    {
+        isGrabbed = value;
     }
 }
