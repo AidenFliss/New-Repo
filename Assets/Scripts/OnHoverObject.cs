@@ -5,17 +5,17 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OnHoverObject : MonoBehaviour
 {
-    public static void HoverEnterObj(IXRHoverInteractor interactor, IXRHoverInteractable interactable, HoverEnterEventArgs args)
+    public static void HoverEnterObj(IXRHoverInteractor interactor, IXRHoverInteractable interactable, BaseInteractionEventArgs args)
     {
-        GameObject hoveredObject = args.interactable.gameObject;
+        GameObject hoveredObject = args.interactableObject.transform.gameObject;
         Renderer rend = hoveredObject.GetComponent<Renderer>();
         Material mat = rend.material;
         mat.color = Color.yellow;
     }
 
-    public static void HoverExitObj(IXRHoverInteractor interactor, IXRHoverInteractable interactable, HoverExitEventArgs args)
+    public static void HoverExitObj(IXRHoverInteractor interactor, IXRHoverInteractable interactable, BaseInteractionEventArgs args)
     {
-        GameObject unhoveredObject = args.interactable.gameObject;
+        GameObject unhoveredObject = args.interactableObject.transform.gameObject;
         Renderer rend = unhoveredObject.GetComponent<Renderer>();
         Material mat = rend.material;
         mat.color = Color.white;

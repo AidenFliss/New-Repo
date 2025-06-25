@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ToggleObject : MonoBehaviour
 {
+    [Tooltip("The game object to toggle")]
     public GameObject gameObjectO;
     
     void Awake()

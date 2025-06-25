@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FoodEatTrig : MonoBehaviour
 {
+    [Tooltip("The collider used to trigger the food bite")]
     public BoxCollider boxCollider;
     bool cooldown = false;
 

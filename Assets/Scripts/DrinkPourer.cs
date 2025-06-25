@@ -5,27 +5,33 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DrinkPourer : MonoBehaviour
 {
+    [Tooltip("The original particle spawn rate of the particle system")]
     public float origRate = 20.0f;
 
+    [Tooltip("The drink effects particles")]
     public ParticleSystem particles;
+
+    [Tooltip("The socket used for the cap")]
     public XRSocketInteractor socket;
 
-    [SerializeField]
     private bool isGrabbed = false;
 
     void Update()
     {
         if (Vector3.Dot(transform.up, Vector3.down) > 0)
         {
-            if (socket.hasSelection == false && isGrabbed == true)
+            if (socket.gameObject == null && isGrabbed == true)
             {
                 var em = particles.emission;
                 em.rateOverTime = origRate;
+                em.enabled = true;
             }
-        }else
+        }
+        else
         {
             var em = particles.emission;
             em.rateOverTime = 0f;
+            em.enabled = false;
         }
     }
 
